@@ -1,0 +1,14 @@
+# Ignore ALL .env files (safety net)
+**/.env
+
+# Backend dependencies/files
+backend/node_modules/
+backend/.env
+
+# Frontend dependencies/files
+frontend/node_modules/
+frontend/.env
+frontend/dist/
+
+# System files
+.DS_Store
