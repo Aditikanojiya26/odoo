@@ -1,21 +1,21 @@
 
-import { createBrowserRouter } from "react-router-dom";
-
-import Home from "../pages/Home";
 import Features from "../pages/Features";
+import Home from "../pages/Home";
 import WorkFlow from "../pages/WorkFlow";
 import Pricing from "../pages/Pricing";
 import Testimonials from "../pages/Testimonials";
-import Signup from "../components/Signup";
 import Login from "../components/Login";
-import ProtectedRoute from "../components/ProtectedRoute";
+import Signup from "../components/Signup";
 import Dashboard from "../components/Dashboard";
+import ProtectedRoute from "../components/ProtectedRoute";
+import { createBrowserRouter } from "react-router";
+import AddItemPage from "../components/Additem"; 
 import MainLayout from "../layout/MainLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout/>,
+    element: <MainLayout />,
     children: [
       {
         path: "/",
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/features",
-        element: <Features />,
+        element: <Features/>,
       },
       {
         path: "/workflow",
@@ -51,11 +51,18 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: (
       <ProtectedRoute>
-        <Dashboard  />
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/add-item", // ⬅️ New protected route
+    element: (
+      <ProtectedRoute>
+        <AddItemPage />
       </ProtectedRoute>
     ),
   },
 ]);
-
 
 export default router;

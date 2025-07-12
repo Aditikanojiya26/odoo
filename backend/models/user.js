@@ -25,6 +25,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     default: 'https://ui-avatars.com/api/?name=Aditi+Kanojiya'
   },
+
+  // ✅ New field to track user points
+  points: {
+    type: Number,
+    default: 50,
+  },
+
   createdAt: {
     type: Date,
     default: Date.now,
