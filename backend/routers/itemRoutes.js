@@ -6,5 +6,8 @@ const itemController = require("../controllers/itemController");
 
 
 router.post("/add", protect, uploadItemImages.array("images", 5), itemController.addItem);
+router.get("/items", itemController.getAllItems);
 
+// Get single item by ID (public)
+router.get("/items/:id", itemController.getItemById);
 module.exports = router;

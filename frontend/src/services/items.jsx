@@ -7,7 +7,7 @@ export const getItems = async () => {
 
 export const getItem = async (id) => {
     const response = await axios.get(`/items/${id}`);
-    return response;
+    return response.data;
 };
 
 export const addItem = async (data) => {

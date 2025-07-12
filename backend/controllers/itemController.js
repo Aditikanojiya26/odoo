@@ -37,3 +37,38 @@ exports.addItem = async (req, res) => {
     res.status(500).json({ message: "Failed to list item" });
   }
 };
+
+
+exports.getAllItems = async (req, res) => {
+  const items = await Item.find();
+  res.json(items);
+};
+
+exports.getItemById = async (req, res) => {
+  const item = await Item.findById(req.params.id);
+  if (!item) return res.status(404).json({ message: "Item not found" });
+  res.json(item);
+};
+
+// exports.updateItem = async (req, res) => {
+//   const item = await Item.findById(req.params.id);
+//   if (!item) return res.status(404).json({ message: "Item not found" });
+
+//   // Optionally check if req.user.id === item.ownerId
+//   Object.assign(item, req.body);
+//   if (req.files && req.files.length > 0) {
+//     item.images = req.files.map((file) => `/uploads/items/${file.filename}`);
+//   }
+
+//   await item.save();
+//   res.json(item);
+// };
+
+// exports.deleteItem = async (req, res) => {
+//   const item = await Item.findById(req.params.id);
+//   if (!item) return res.status(404).json({ message: "Item not found" });
+
+//   // Optionally check if req.user.id === item.ownerId
+//   await item.deleteOne();
+//   res.json({ message: "Item deleted successfully" });
+// };
